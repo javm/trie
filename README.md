@@ -1,4 +1,4 @@
-geohash-js
+trie
 ----------
 
 Summary
