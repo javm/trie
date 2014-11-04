@@ -9,4 +9,4 @@ Refactored by Jose A. Villarreal (c) 2014. Realesed under the MIT License
 
 More information
 ================
-GeoHash on Wikipedia (http://en.wikipedia.org/wiki/Trie)
+Trie on Wikipedia (http://en.wikipedia.org/wiki/Trie)
