@@ -1,0 +1,22 @@
+{
+    "name": "trie",
+    "description": "Trie data structure implementation",
+    "keywords": ["Trie", "prefix", "autocomplete"],
+    "author": "Jose A. Villarreal",
+    "email": "quetzal1910@gmail.com",
+    "version": "0.0.1",
+    "main": "./trie",
+    "scripts": {
+	"test": "mocha tests/testTrie.js"
+    },
+    "repository": {
+	"type": "git",
+	"url": "https://github.com/javm/trie.git"
+    },
+    "license": "MIT",
+
+    "devDependencies": {
+	"expect.js": "~0.3.1",
+	"mocha": "~1.18.2"
+    }
+}
