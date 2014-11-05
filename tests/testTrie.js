@@ -7,6 +7,7 @@ describe('Trie', function(){
     trie = new Trie();
     trie.insert("hello");
     trie.insert("hell");
+    trie.insert("Hello");
     done();
   });
   describe('insert', function(){

@@ -1,8 +1,6 @@
-
 /*
 * TRIE implementation in Javascript for node.js
 * Based on https://github.com/odhyan/trie
-* Copyright (c) 2014 Antonio Villarreal
 */
 
 function Trie(){
@@ -31,8 +29,8 @@ trie.insert = function(str, pos){
   }
 
   var T = this,
-      k,
-      child;
+      k, //Current character
+      child; //Current node
 
   if(pos === undefined) {
     pos = 0;
@@ -41,12 +39,14 @@ trie.insert = function(str, pos){
     T.words ++;
     return;
   }
+
   T.prefixes ++;
   k = str[pos];
   if(T.children[k] === undefined) { //if node for this char doesn't exist, create one
     T.children[k] = new Trie();
   }
   child = T.children[k];
+  //Recursive call
   child.insert(str, pos + 1);
 };
 
@@ -70,6 +70,7 @@ trie.remove = function(str, pos){
     T.words --;
     return;
   }
+
   T.prefixes --;
   k = str[pos];
   child = T.children[k];
@@ -93,7 +94,7 @@ trie.countWord = function(str, pos) {
   var T = this,
       k,
       child,
-      ret = 0;
+      words = 0;
 
   if(pos === undefined) {
     pos = 0;
@@ -104,9 +105,9 @@ trie.countWord = function(str, pos) {
   k = str[pos];
   child = T.children[k];
   if(child !== undefined) { //node exists
-    ret = child.countWord(str, pos + 1);
+    words = child.countWord(str, pos + 1);
   }
-  return ret;
+  return words;
 };
 
 /*
@@ -126,7 +127,7 @@ trie.countPrefix = function(str, pos) {
   var T = this,
       k,
       child,
-      ret = 0;
+      prefixes = 0;
 
   if(pos === undefined) {
     pos = 0;
@@ -137,9 +138,9 @@ trie.countPrefix = function(str, pos) {
   k = str[pos];
   child = T.children[k];
   if(child !== undefined) { //node exists
-    ret = child.countPrefix(str, pos + 1); 
+    prefixes = child.countPrefix(str, pos + 1); 
   }
-  return ret; 
+  return prefixes;
 };
 
 /*
@@ -168,7 +169,7 @@ trie.find = function(str) {
  * @param {String} str Prefix of current word
  * @return {Array} Array of words in the dictionary
  */
-trie. getAllWords = function(str) {
+trie.getAllWords = function(str) {
   var T = this,
       k,
       child,
