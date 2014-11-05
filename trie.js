@@ -6,7 +6,7 @@
 function Trie(){
   this.words = 0;
   this.prefixes = 0;
-  this.children = [];
+  this.children = {};
 }
 
 var trie = Trie.prototype;
